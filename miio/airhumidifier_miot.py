@@ -129,7 +129,7 @@ class AirHumidifierMiotStatus(DeviceStatus):
     def water_level(self) -> int:
         """Return current water level."""
         # 127 without water tank. 125 = 100% water
-        return int(self.data["water_level"] / 1.25)
+        return round(self.data["water_level"] / 1.25)
 
     @property
     def dry(self) -> Optional[bool]:
